@@ -1,3 +1,4 @@
+using AgendaEscolarApp.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +17,7 @@ builder.Services.AddControllers(); builder.Services.AddDbContext<ApplicationDbCo
 // Add Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddMediatR(typeof(Program));
-
+builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 
 // Configure JWT Authentication
 builder.Services.AddEndpointsApiExplorer();

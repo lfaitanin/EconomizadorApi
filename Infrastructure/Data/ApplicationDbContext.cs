@@ -1,4 +1,5 @@
 ﻿using AgendaEscolarApp.Domain.Entities;
+using EconomizadorApi.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext
@@ -7,8 +8,8 @@ public class ApplicationDbContext : DbContext
         : base(options) { }
 
     public DbSet<Usuario> Usuarios { get; set; }
-    //public DbSet<Aluno> Alunos { get; set; }
-    //public DbSet<Evento> Eventos { get; set; }
-    //// Outras tabelas...
+    public DbSet<Despesas> Despesas { get; set; }
+    public DbSet<Receita> Receitas { get; set; }
+    public DbSet<Categorias> Categorias { get; set; }
 }
 
