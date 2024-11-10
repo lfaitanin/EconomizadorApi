@@ -8,5 +8,6 @@ namespace EconomizadorApi.Application.Receitas.Commands
         public decimal Valor { get; set; }
         public DateTime Data { get; set; }
         public int CategoriaId { get; set; }
+        public string UsuarioId { get; set; }  
     }
 }

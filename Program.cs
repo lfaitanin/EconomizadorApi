@@ -18,7 +18,15 @@ builder.Services.AddControllers(); builder.Services.AddDbContext<ApplicationDbCo
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddScoped<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 // Configure JWT Authentication
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -85,6 +93,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
 
+app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication(); 
 app.UseAuthorization();

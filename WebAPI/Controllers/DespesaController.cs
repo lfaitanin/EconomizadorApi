@@ -1,4 +1,5 @@
-﻿using EconomizadorApi.Application.Despesa.Commands;
+﻿using AgendaEscolarApp.Domain.Entities;
+using EconomizadorApi.Application.Despesa.Commands;
 using EconomizadorApi.Application.Despesa.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,10 @@ public class DespesaController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> ObterDespesas()
+    public async Task<IActionResult> ObterDespesas([FromQuery] string usuarioId)
     {
-        var despesas = await _mediator.Send(new GetDespesasQuery());
+        var query = new GetDespesasQuery { UsuarioId = usuarioId };
+        var despesas = await _mediator.Send(query);
         return Ok(despesas);
     }
 }

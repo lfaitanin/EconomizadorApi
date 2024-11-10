@@ -5,5 +5,6 @@ namespace EconomizadorApi.Application.Receitas.Queries
 {
     public class GetReceitasQuery : IRequest<List<Receita>>
     {
+        public string UsuarioId { get; set; }
     }
 }

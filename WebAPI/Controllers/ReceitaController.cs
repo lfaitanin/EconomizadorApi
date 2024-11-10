@@ -1,4 +1,6 @@
-﻿using EconomizadorApi.Application.Receitas.Commands;
+﻿using AgendaEscolarApp.Domain.Entities;
+using EconomizadorApi.Application.Despesa.Queries;
+using EconomizadorApi.Application.Receitas.Commands;
 using EconomizadorApi.Application.Receitas.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +24,10 @@ public class ReceitaController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> ObterReceitas()
+    public async Task<IActionResult> ObterReceitas([FromQuery] string usuarioId)
     {
-        var receitas = await _mediator.Send(new GetReceitasQuery());
+        var query = new GetDespesasQuery { UsuarioId = usuarioId };
+        var receitas = await _mediator.Send(query);
         return Ok(receitas);
     }
 }

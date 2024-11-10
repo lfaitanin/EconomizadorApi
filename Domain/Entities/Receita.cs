@@ -8,5 +8,7 @@
         public DateTime Data { get; set; }
         public int CategoriaId { get; set; }
         public Categorias Categoria { get; set; }
+        public string UsuarioId { get; set; }
+        public virtual ApplicationUser Usuario { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace EconomizadorApi.Application.Despesa.Handlers
 
         public async Task<List<Despesas>> Handle(GetDespesasQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Despesas.Include(d => d.Categoria).ToListAsync(cancellationToken);
+            return await _context.Despesas.Include(d => d.Categoria).Where(r => r.UsuarioId == request.UsuarioId).ToListAsync(cancellationToken);
         }
     }
 

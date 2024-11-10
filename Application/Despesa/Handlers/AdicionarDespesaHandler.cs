@@ -20,7 +20,8 @@ namespace EconomizadorApi.Application.Despesa.Handlers
                 Descricao = request.Descricao,
                 Valor = request.Valor,
                 Data = request.Data,
-                CategoriaId = request.CategoriaId
+                CategoriaId = request.CategoriaId,
+                UsuarioId = request.UsuarioId
             };
 
             _context.Despesas.Add(despesa);

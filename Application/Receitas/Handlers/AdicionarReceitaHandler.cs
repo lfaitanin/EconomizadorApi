@@ -20,7 +20,8 @@ namespace EconomizadorApi.Application.Receitas.Handlers
                 Descricao = request.Descricao,
                 Valor = request.Valor,
                 Data = request.Data,
-                CategoriaId = request.CategoriaId
+                CategoriaId = request.CategoriaId,
+                UsuarioId = request.UsuarioId  
             };
 
             _context.Receitas.Add(receita);

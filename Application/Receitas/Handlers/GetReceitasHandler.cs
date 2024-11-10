@@ -16,7 +16,9 @@ namespace EconomizadorApi.Application.Receitas.Handlers
 
         public async Task<List<Receita>> Handle(GetReceitasQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Receitas.Include(r => r.Categoria).ToListAsync(cancellationToken);
+            return await _context.Receitas
+                        .Where(r => r.UsuarioId == request.UsuarioId)
+                        .ToListAsync(cancellationToken);
         }
     }
 
