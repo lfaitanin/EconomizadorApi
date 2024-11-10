@@ -1,4 +1,6 @@
-﻿namespace EconomizadorApi.Domain.Entities
+﻿using AgendaEscolarApp.Domain.Entities;
+
+namespace EconomizadorApi.Domain.Entities
 {
     public class Despesas
     {
@@ -9,6 +11,8 @@
         public int CategoriaId { get; set; }
         public Categorias Categoria { get; set; }
         public string UsuarioId { get; set; }
+        public Usuario Usuarios { get; set; }
+
         public virtual ApplicationUser Usuario { get; set; }
     }
 }
