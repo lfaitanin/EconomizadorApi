@@ -11,8 +11,6 @@ namespace EconomizadorApi.Domain.Entities
         public int CategoriaId { get; set; }
         public Categorias Categoria { get; set; }
         public string UsuarioId { get; set; }
-        public Usuario Usuarios { get; set; }
-
         public virtual ApplicationUser Usuario { get; set; }
     }
 }
