@@ -26,7 +26,7 @@ public class ReceitaController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> ObterReceitas([FromQuery] string usuarioId)
     {
-        var query = new GetDespesasQuery { UsuarioId = usuarioId };
+        var query = new GetReceitasQuery { UsuarioId = usuarioId };
         var receitas = await _mediator.Send(query);
         return Ok(receitas);
     }
